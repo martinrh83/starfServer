@@ -9,7 +9,7 @@ const AppError = require('./utils/appError');
 const globalErrorHandler = require('./controllers/errorController');
 const userRouter = require('./routes/userRoutes');
 var admin = require("firebase-admin");
-const serviceAccount = require('./secret.json');
+//const serviceAccount = require('./secret.json');
 const app = express();
 
 //GLOBAL MIDDLEWARES
@@ -32,7 +32,7 @@ app.use(mongoSanitize());
 //Data sanitization against XSS
 app.use(xss());
 //prevent parameter polution
-//app.use(hpp());
+app.use(hpp());
 //serving static files
 app.use(express.static(`${__dirname}/public`));
 
