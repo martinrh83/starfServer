@@ -4,6 +4,7 @@ const helmet = require('helmet');
 const mongoSanitize = require('express-mongo-sanitize');
 const xss = require('xss-clean');
 const hpp = require('hpp');
+const cors = require('cors');
 const AppError = require('./utils/appError');
 const globalErrorHandler = require('./controllers/errorController');
 const userRouter = require('./routes/userRoutes');
@@ -12,7 +13,10 @@ const serviceAccount = require('./secret.json');
 const app = express();
 
 //GLOBAL MIDDLEWARES
+//Set cors
+app.use(cors());
 
+app.options('*', cors());
 //SET SECURITY HTTP headers
 app.use(helmet());
 //DEVELOPMENT LOGGING
@@ -42,10 +46,18 @@ app.use((req,res,next) =>{
   req.requestTime = new Date().toISOString();
   next();
 });
-
-admin.initializeApp({
+//FIREBASE SERVICE ACCOUNT SETTINGS
+/* admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),
   databaseURL: "https://starfapp-a3e4e.firebaseio.com"
+}); */
+admin.initializeApp({
+  credential: admin.credential.cert({
+      projectId: process.env.FIREBASE_PROJECT_ID,
+      clientEmail: process.env.FIREBASE_CLIENT_EMAIL,
+      privateKey: process.env.FIREBASE_PRIVATE_KEY.replace(/\\n/g, '\n')
+  }),
+  databaseURL: process.env.FIREBASE_DATABASE_URL
 });
 
 //ROUTES
