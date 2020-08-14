@@ -8,7 +8,7 @@ const cors = require('cors');
 const AppError = require('./utils/appError');
 const globalErrorHandler = require('./controllers/errorController');
 const userRouter = require('./routes/userRoutes');
-var admin = require("firebase-admin");
+//var admin = require("firebase-admin");
 //const serviceAccount = require('./secret.json');
 const app = express();
 
@@ -51,14 +51,6 @@ app.use((req,res,next) =>{
   credential: admin.credential.cert(serviceAccount),
   databaseURL: "https://starfapp-a3e4e.firebaseio.com"
 }); */
-admin.initializeApp({
-  credential: admin.credential.cert({
-      projectId: process.env.FIREBASE_PROJECT_ID,
-      clientEmail: process.env.FIREBASE_CLIENT_EMAIL,
-      privateKey: JSON.parse(process.env.FIREBASE_PRIVATE_KEY).replace(/\\n/g, '\n')
-  }),
-  databaseURL: process.env.FIREBASE_DATABASE_URL
-});
 
 //ROUTES
 app.use('/api/v1/users', userRouter);

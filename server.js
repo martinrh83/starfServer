@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
 const app = require('./app');
-
+var admin = require("firebase-admin");
 
 process.on('uncaughtException', err =>{
   console.log(err.name, err.message);
@@ -24,6 +24,15 @@ const port = process.env.PORT || 3000;
 
 const server = app.listen(port, () => {
   console.log('App is running');
+});
+
+admin.initializeApp({
+  credential: admin.credential.cert({
+      projectId: process.env.FIREBASE_PROJECT_ID,
+      clientEmail: process.env.FIREBASE_CLIENT_EMAIL,
+      privateKey: process.env.FIREBASE_PRIVATE_KEY.replace(/\\n/g, '\n')
+  }),
+  databaseURL: process.env.FIREBASE_DATABASE_URL
 });
 
 process.on('unhandledRejection', err => {
