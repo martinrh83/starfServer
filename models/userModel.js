@@ -40,6 +40,10 @@ const userSchema = new mongoose.Schema({
       message: 'Las contraseñan deben ser iguales'
     }
   },
+  token: {
+    type: String,
+    select: false
+  },
   passwordChangedAt: Date
 });
 

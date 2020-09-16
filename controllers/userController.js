@@ -28,6 +28,18 @@ exports.getUser = catchAsync(async (req, res, next)=>{
     }
   });    
 });
+
+exports.storeToken = catchAsync(async(req, res, next)=>{
+
+  await User.updateOne({ _id: req.user.id }, {
+    token: req.body.token
+  });
+  res.status(200).json({
+    status: 'success',
+    message: 'Se ha actualizado el token correctamente'
+  });    
+});
+
 exports.createUser = (req,res)=>{
   res.status(500).json({
     status: 'error',

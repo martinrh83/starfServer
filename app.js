@@ -8,6 +8,7 @@ const cors = require('cors');
 const AppError = require('./utils/appError');
 const globalErrorHandler = require('./controllers/errorController');
 const userRouter = require('./routes/userRoutes');
+const notifRouter = require('./routes/notificationRoutes');
 //var admin = require("firebase-admin");
 //const serviceAccount = require('./secret.json');
 const app = express();
@@ -54,6 +55,7 @@ app.use((req,res,next) =>{
 
 //ROUTES
 app.use('/api/v1/users', userRouter);
+app.use('/api/v1/notifications', notifRouter);
 
 app.all('*', (req, res, next)=>{
   /* res.status(404).json({
