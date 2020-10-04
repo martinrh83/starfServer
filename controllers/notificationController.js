@@ -49,7 +49,9 @@ exports.manageAttendance = catchAsync(async(req, res, next)=>{
       subjectCode: dataFiltered.codigo,
       subjectName: dataFiltered.materia
     });
+
     userApp.save(function (err) {
+      console.log(err)
       if (!err) {
         console.log('Attendance saved!');
         sendPushToOneUser({
@@ -110,22 +112,26 @@ exports.getDataSysacad =  ()=>{
   return data;
 };
 
-const sendPushNotification = catchAsync(async (message) => {
-  initialize();
-  const response = await admin.messaging().send(message);
-  console.log(response);
-});
+
 
 const sendPushToOneUser = notification => {
+  initialize();
   const message = {
-    token: notification.tokenId,
+    token: notification.token,
     data: {
       titulo: notification.titulo,
       message: notification.message
     }
   }
+  console.log(message)
   sendPushNotification(message);
 }
+
+const sendPushNotification = catchAsync(async (message) => {
+  //initialize();
+  const response = await admin.messaging().send(message);
+  console.log(response);
+});
 
 exports.sendPushToTopic = notification => {
   const message = {
