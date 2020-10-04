@@ -1,6 +1,10 @@
 const catchAsync = require('./../utils/catchAsync');
 const User = require('./../models/userModel');
 const AppError = require('../utils/appError');
+const xml2js = require('xml2js');
+const fs = require('fs');
+const util = require('util');
+const readFile = (fileName) => util.promisify(fs.readFile)(fileName, 'utf8');
 
 exports.getAllUsers = catchAsync(async(req, res, next)=>{
   const users = await User.find();
@@ -39,6 +43,8 @@ exports.storeToken = catchAsync(async(req, res, next)=>{
     message: 'Se ha actualizado el token correctamente'
   });    
 });
+
+
 
 exports.createUser = (req,res)=>{
   res.status(500).json({

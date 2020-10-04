@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<_parametro2>
+  <data>
+    <anoacademico>20f20</anoacademico>
+    <especialidad>sistemas</especialidad>
+    <plan>2008</plan>
+    <aula>120</aula>
+    <comision>1k8</comision>
+    <materia>AED</materia>
+    <nombre>Algoritmos</nombre>
+    <horario>
+      <dia>Lunes</dia>
+      <hora_desde>09:30</hora_desde>
+      <hora_hasta>10:15</hora_hasta>
+    </horario>
+    <horario>
+      <dia>Miércoles</dia>
+      <hora_desde>08:00</hora_desde>
+      <hora_hasta>08:45</hora_hasta>
+    </horario>
+  </data>
+  <data>
+    <anoacademico>20f20</anoacademico>
+    <especialidad>sistemas</especialidad>
+    <plan>2008</plan>
+    <aula>120</aula>
+    <comision>1k8</comision>
+    <codigo>MDD</codigo>
+    <materia>Discreta</materia>
+    <horario>
+      <dia>Lunes</dia>
+      <hora_desde>08:00</hora_desde>
+      <hora_hasta>08:45</hora_hasta>
+    </horario>
+    <horario>
+      <dia>Jueves</dia>
+      <hora_desde>08:00</hora_desde>
+      <hora_hasta>08:45</hora_hasta>
+    </horario>
+  </data>
+</_parametro2>

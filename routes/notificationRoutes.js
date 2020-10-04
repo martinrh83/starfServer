@@ -4,7 +4,7 @@ const authController = require('./../controllers/authController');
 const router = express.Router();
 
 
-router.post('/notification_user', notifController.sendPushToOneUser);
-
+//router.post('/notification_user', notifController.sendPushToOneUser);
+router.post('/manage_attendance', notifController.manageAttendance);
 
 module.exports = router;

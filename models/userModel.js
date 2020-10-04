@@ -2,6 +2,12 @@ const mongoose = require('mongoose');
 const validator = require('validator');
 const bcrypt = require('bcryptjs');
 
+const Attendances = new mongoose.Schema({
+  registeredAt: {type: Date, default: Date.now},
+  subjectCode: {type: String},
+  subjectName: {type: String}
+});
+
 const userSchema = new mongoose.Schema({
   name: {
     type: String,
@@ -44,6 +50,7 @@ const userSchema = new mongoose.Schema({
     type: String,
     select: false
   },
+  attendances: [Attendances],
   passwordChangedAt: Date
 });
 
