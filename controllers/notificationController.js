@@ -117,11 +117,12 @@ exports.getDataSysacad =  ()=>{
 const sendPushToOneUser = notification => {
   initialize();
   const message = {
-    token: notification.token,
-    data: {
-      titulo: notification.titulo,
-      message: notification.message
-    }
+    
+    notification: {
+      title: notification.titulo,
+      body: notification.message
+    },
+    token: notification.token
   }
   console.log(message)
   sendPushNotification(message);
