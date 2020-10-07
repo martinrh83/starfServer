@@ -1,13 +1,14 @@
 const catchAsync = require('./../utils/catchAsync');
 const User = require('./../models/userModel');
 const AppError = require('../utils/appError');
-const admin = require("firebase-admin");
+const server = require("../server");
 const xml2js = require('xml2js');
 const fs = require('fs');
 const util = require('util');
+
 const readFile = (fileName) => util.promisify(fs.readFile)(fileName, 'utf8');
 
-const initialize = () =>{
+/* const initialize = () =>{
   admin.initializeApp({
     credential: admin.credential.cert({
         projectId: process.env.FIREBASE_PROJECT_ID,
@@ -16,7 +17,7 @@ const initialize = () =>{
     }),
     databaseURL: process.env.FIREBASE_DATABASE_URL
   });
-}
+} */
 
 exports.manageAttendance = catchAsync(async(req, res, next)=>{
   const days = ["Lunes", "Martes", "Miércoles", "Jueves","Viernes"]
@@ -115,7 +116,7 @@ exports.getDataSysacad =  ()=>{
 
 
 const sendPushToOneUser = notification => {
-  initialize();
+  //initialize();
   const message = {
     
     notification: {
@@ -129,9 +130,14 @@ const sendPushToOneUser = notification => {
 }
 
 const sendPushNotification = catchAsync(async (message) => {
-  //initialize();
-  const response = await admin.messaging().send(message);
-  console.log(response);
+  const response = await server.admin.messaging().send(message)
+  .then((response) => {
+    // Response is a message ID string.
+    console.log('Successfully sent message:', response);
+  })
+  .catch((error) => {
+    console.log('Error sending message:', error);
+  });
 });
 
 exports.sendPushToTopic = notification => {
