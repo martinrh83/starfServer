@@ -45,6 +45,20 @@ exports.storeToken = catchAsync(async(req, res, next)=>{
 });
 
 
+exports.getAllAttendances = catchAsync(async (req, res, next)=>{
+  const user = await User.findById(req.user.id);
+  //console.log(attendances);
+  /*if(!attendances){
+    return next(new AppError('No se encontró un usuario con esa ID', 404));
+  }*/
+
+  res.status(200).json({
+    status: 'success',
+    data: {
+      attendances: user.attendances
+    }
+  });    
+});
 
 exports.createUser = (req,res)=>{
   res.status(500).json({
