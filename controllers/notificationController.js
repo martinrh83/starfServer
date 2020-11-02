@@ -8,17 +8,6 @@ const util = require('util');
 
 const readFile = (fileName) => util.promisify(fs.readFile)(fileName, 'utf8');
 
-/* const initialize = () =>{
-  admin.initializeApp({
-    credential: admin.credential.cert({
-        projectId: process.env.FIREBASE_PROJECT_ID,
-        clientEmail: process.env.FIREBASE_CLIENT_EMAIL,
-        privateKey: process.env.FIREBASE_PRIVATE_KEY.replace(/\\n/g, '\n')
-    }),
-    databaseURL: process.env.FIREBASE_DATABASE_URL
-  });
-} */
-
 exports.manageAttendance = catchAsync(async(req, res, next)=>{
   const days = ["Lunes", "Martes", "Miércoles", "Jueves","Viernes"]
   const {datetime, legajo } = req.body;
@@ -77,38 +66,9 @@ exports.manageAttendance = catchAsync(async(req, res, next)=>{
 
 exports.getDataSysacad =  ()=>{
   const xml =  fs.readFileSync(process.cwd() + '/test.xml');
-  /*const xml = `<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-  <_parametro2>
-    <anoacademico>2020</anoacademico>
-    <especialidad>sistemas</especialidad>
-    <plan>2008</plan>
-    <aula>120</aula>
-    <comision>1k8</comision>
-    <materia>AED</materia>
-    <nombre>Algoritmos</nombre>
-    <horario>
-      <dia>Lunes</dia>
-      <hora_desde>08:00</hora_desde>
-      <hora_hasta>08:45</hora_hasta>
-    </horario>
-    <horario>
-      <dia>Miercoles</dia>
-      <hora_desde>08:00</hora_desde>
-      <hora_hasta>08:45</hora_hasta>
-    </horario>
-  </_parametro2>`;*/
   var data = null;
   xml2js.parseString(xml, {explicitArray: false, mergeAttrs : true},(err, result) => {
-
-    //const json = JSON.stringify(result, null, 4);
     data = result;
-    //return result
-    /*res.status(200).json({
-      status: 'sucess',
-      data: {
-        result
-      }
-    })*/
   });
   return data;
 };
@@ -116,7 +76,6 @@ exports.getDataSysacad =  ()=>{
 
 
 const sendPushToOneUser = notification => {
-  //initialize();
   const message = {
     
     notification: {
@@ -150,3 +109,22 @@ exports.sendPushToTopic = notification => {
   }
   sendPushNotification(message);
 }
+
+exports.getDailyNotifications = catchAsync(async(req, res, next)=>{
+  const user = await User.findById(req.user.id);
+  let dailyAttendances = user.attendances.filter(el => isToday(el.registeredAt, new Date()));
+
+  res.status(200).json({
+    status: 'success',
+    results: dailyAttendances.length,
+    data: {
+      dailyAttendances
+    }
+  });    
+});
+
+const isToday = (d1, d2)=>{
+  return d1.getFullYear() == d2.getFullYear()
+  && d1.getMonth() == d2.getMonth()
+  && d1.getDate() == d2.getDate();
+};

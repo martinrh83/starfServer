@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<_parametro2>
+  <data>
+    <anoacademico>2020</anoacademico>
+    <especialidad>sistemas</especialidad>
+    <plan>2008</plan>
+    <aula>120</aula>
+    <comision>1k8</comision>
+    <materia>AED</materia>
+    <nombre>Algoritmos</nombre>
+  </data>
+  <data>
+    <anoacademico>2020</anoacademico>
+    <especialidad>sistemas</especialidad>
+    <plan>2008</plan>
+    <aula>120</aula>
+    <comision>1k8</comision>
+    <codigo>MDD</codigo>
+    <materia>Discreta</materia>
+  </data>
+</_parametro2>
