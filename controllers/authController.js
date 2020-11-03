@@ -37,17 +37,17 @@ exports.signup = catchAsync(async (req, res, next) => {
 });
 
 exports.login = catchAsync(async (req,res, next) =>{
-  const {email, password } = req.body;
+  const {legajo, password } = req.body;
 
-  //check if email and pass exist5
-  if(!email  || !password){
-    return next(new AppError('Ingrese mail y contraseña', 400));
+  //check if legajo and pass exist5
+  if(!legajo  || !password){
+    return next(new AppError('Ingrese legajo y contraseña', 400));
   }
   //check if the user exist && password is correct
-  const user = await User.findOne({ email }).select('+password');
+  const user = await User.findOne({ legajo }).select('+password');
 
   if(!user || !(await user.correctPassword(password, user.password))){
-    return next(new AppError('El email o la contraseña son incorrectas', 401));
+    return next(new AppError('El legajo o la contraseña son incorrectas', 401));
   }
   // if everthing is ok, send token to client
   createSendToken(user, 200, res);
