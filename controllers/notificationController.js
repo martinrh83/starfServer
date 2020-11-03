@@ -12,8 +12,8 @@ exports.manageAttendance = catchAsync(async(req, res, next)=>{
   const days = ["Lunes", "Martes", "Miércoles", "Jueves","Viernes"]
   const {datetime, legajo } = req.body;
   const userApp = await User.findOne({ legajo }).select('+token');
-  console.log(userApp)
-  const dataSysacad =  this.getDataSysacad()._parametro2.data;
+  const dataSysacad =  this.getDataSysacad(legajo)._parametro2.data;
+
   let cameraDate = new Date(datetime);
   let dayNumber = cameraDate.getDay()
   let hour  = cameraDate.toLocaleTimeString(undefined, {
@@ -21,13 +21,13 @@ exports.manageAttendance = catchAsync(async(req, res, next)=>{
     minute: '2-digit'
   })
   let cameraDay = days[dayNumber - 1];
-  console.log(cameraDay)
+
   //console.log(dataSysacad)
   let dataFiltered = dataSysacad.find( el => {
     return el.horario.find(horario => {
-      let cameraHour = hour.split(':')[0] * 60  + hour.split(':')[1];
-      let hourStart = horario.hora_desde.split(':')[0] * 60  + horario.hora_desde.split(':')[1];
-      let hourEnd = horario.hora_hasta.split(':')[0] * 60  + horario.hora_hasta.split(':')[1];
+      let cameraHour = parseInt(hour.split(':')[0] * 60  + hour.split(':')[1]);
+      let hourStart = parseInt(horario.hora_desde.split(':')[0] * 60  + horario.hora_desde.split(':')[1]);
+      let hourEnd = parseInt(horario.hora_hasta.split(':')[0] * 60  + horario.hora_hasta.split(':')[1]);
       return (horario.dia  === cameraDay) && (hourStart <= cameraHour && hourEnd >= cameraHour)? true : false;
     })
   })
@@ -64,8 +64,16 @@ exports.manageAttendance = catchAsync(async(req, res, next)=>{
   });    
 });
 
-exports.getDataSysacad =  ()=>{
-  const xml =  fs.readFileSync(process.cwd() + '/test.xml');
+exports.getDataSysacad =  (legajo)=>{
+  var xml;
+  let legajos = [36034, 30666, 30344, 24400, 26476, 37853];
+  if(legajos.includes(parseInt(legajo))){
+    let url = `/horario${legajo}.xml`;
+    xml =  fs.readFileSync(process.cwd() + url);
+  }else{
+    xml =  fs.readFileSync(process.cwd() + '/test.xml');
+  }
+
   var data = null;
   xml2js.parseString(xml, {explicitArray: false, mergeAttrs : true},(err, result) => {
     data = result;

@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<_parametro2>
+  <data>
+    <anoacademico>2020</anoacademico>
+    <especialidad>sistemas</especialidad>
+    <plan>2008</plan>
+    <aula>107</aula>
+    <comision>5k2</comision>
+    <codigo>PRF</codigo>
+    <materia>Proyecto Final</materia>
+    <horario>
+      <dia>Lunes</dia>
+      <hora_desde>19:00</hora_desde>
+      <hora_hasta>21:15</hora_hasta>
+    </horario>
+    <horario>
+      <dia>Miércoles</dia>
+      <hora_desde>21:15</hora_desde>
+      <hora_hasta>23:30</hora_hasta>
+    </horario>
+  </data>
+  <data>
+    <anoacademico>2020</anoacademico>
+    <especialidad>sistemas</especialidad>
+    <plan>2008</plan>
+    <aula>107</aula>
+    <comision>5k2</comision>
+    <codigo>ADG</codigo>
+    <materia>Administración Gerencial</materia>
+    <horario>
+      <dia>Martes</dia>
+      <hora_desde>19:00</hora_desde>
+      <hora_hasta>21:15</hora_hasta>
+    </horario>
+    <horario>
+      <dia>Jueves</dia>
+      <hora_desde>19:00</hora_desde>
+      <hora_hasta>21:15</hora_hasta>
+    </horario>
+  </data>
+  <data>
+    <anoacademico>2020</anoacademico>
+    <especialidad>sistemas</especialidad>
+    <plan>2008</plan>
+    <aula>107</aula>
+    <comision>5k2</comision>
+    <codigo>INA</codigo>
+    <materia>Inteligencia Artificial</materia>
+    <horario>
+      <dia>Martes</dia>
+      <hora_desde>21:15</hora_desde>
+      <hora_hasta>23:30</hora_hasta>
+    </horario>
+    <horario>
+      <dia>Miércoles</dia>
+      <hora_desde>19:00</hora_desde>
+      <hora_hasta>21:15</hora_hasta>
+    </horario>
+  </data>
+  <data>
+    <anoacademico>2020</anoacademico>
+    <especialidad>sistemas</especialidad>
+    <plan>2008</plan>
+    <aula>107</aula>
+    <comision>5k2</comision>
+    <codigo>SGE</codigo>
+    <materia>Sistemas de Gestión</materia>
+    <horario>
+      <dia>Lunes</dia>
+      <hora_desde>21:15</hora_desde>
+      <hora_hasta>23:30</hora_hasta>
+    </horario>
+    <horario>
+      <dia>Viernes</dia>
+      <hora_desde>19:00</hora_desde>
+      <hora_hasta>22:00</hora_hasta>
+    </horario>
+  </data>
+</_parametro2>

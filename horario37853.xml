@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<_parametro2>
+  <data>
+    <anoacademico>2020</anoacademico>
+    <especialidad>sistemas</especialidad>
+    <plan>2008</plan>
+    <aula>212</aula>
+    <comision>2k1</comision>
+    <codigo>SSO</codigo>
+    <materia>Sistemas Operativos</materia>
+    <horario>
+      <dia>Lunes</dia>
+      <hora_desde>09:30</hora_desde>
+      <hora_hasta>11:00</hora_hasta>
+    </horario>
+    <horario>
+      <dia>Viernes</dia>
+      <hora_desde>11:00</hora_desde>
+      <hora_hasta>12:30</hora_hasta>
+    </horario>
+  </data>
+  <data>
+    <anoacademico>2020</anoacademico>
+    <especialidad>sistemas</especialidad>
+    <plan>2008</plan>
+    <aula>212</aula>
+    <comision>2k1</comision>
+    <codigo>SSL</codigo>
+    <materia>Sintáxis y Sem. de los Lenguajes</materia>
+    <horario>
+      <dia>Lunes</dia>
+      <hora_desde>11:00</hora_desde>
+      <hora_hasta>12:30</hora_hasta>
+    </horario>
+    <horario>
+      <dia>Viernes</dia>
+      <hora_desde>09:30</hora_desde>
+      <hora_hasta>11:00</hora_hasta>
+    </horario>
+  </data>
+  <data>
+    <anoacademico>2020</anoacademico>
+    <especialidad>sistemas</especialidad>
+    <plan>2008</plan>
+    <aula>212</aula>
+    <comision>2k1</comision>
+    <codigo>PPR</codigo>
+    <materia>Paradigmas de Programación</materia>
+    <horario>
+      <dia>Lunes</dia>
+      <hora_desde>12:30</hora_desde>
+      <hora_hasta>14:00</hora_hasta>
+    </horario>
+    <horario>
+      <dia>Martes</dia>
+      <hora_desde>08:45</hora_desde>
+      <hora_hasta>10:15</hora_hasta>
+    </horario>
+  </data>
+  <data>
+    <anoacademico>2020</anoacademico>
+    <especialidad>sistemas</especialidad>
+    <plan>2008</plan>
+    <aula>212</aula>
+    <comision>2k1</comision>
+    <codigo>ASS</codigo>
+    <materia>Análisis de Sistemas</materia>
+    <horario>
+      <dia>Martes</dia>
+      <hora_desde>10:15</hora_desde>
+      <hora_hasta>12:30</hora_hasta>
+    </horario>
+    <horario>
+      <dia>Miércoles</dia>
+      <hora_desde>10:15</hora_desde>
+      <hora_hasta>12:30</hora_hasta>
+    </horario>
+  </data>
+</_parametro2>
