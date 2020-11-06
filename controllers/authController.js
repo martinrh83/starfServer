@@ -47,7 +47,7 @@ exports.login = catchAsync(async (req,res, next) =>{
   const user = await User.findOne({ legajo }).select('+password');
 
   if(!user || !(await user.correctPassword(password, user.password))){
-    return next(new AppError('El legajo o la contraseña son incorrectas', 401));
+    return next(new AppError('Legajo y/o contraseña inválidos', 401));
   }
   // if everthing is ok, send token to client
   createSendToken(user, 200, res);
@@ -77,7 +77,7 @@ exports.protect = catchAsync(async(req, res, next) => {
     token = req.headers.authorization.split(' ')[1];
   }
   if(!token){
-    return next(new AppError('Debe loguearse par acceder a esta url', 401));
+    return next(new AppError('Debe loguearse para acceder a esta sección', 401));
   }
   //2) Verification token
   const decoded = await promisify(jwt.verify)(token, process.env.JWT_SECRET);

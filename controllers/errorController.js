@@ -1,24 +1,24 @@
 const AppError = require('./../utils/appError');
 
 const handleCastErrorDB = err => {
-  const message = `Invalid ${err.path}: ${err.value}.`;
+  const message = `Invalido ${err.path}: ${err.value}.`;
   return new AppError(message, 400);
 }
 
 const handleDuplicateFieldsDB = err =>{
-  const value = err.errmsg.match(/(["'])(\\?.)*?\1/)[0];
-  console.log(value);
-  const message = `Duplicated field value ${value}`;
+  //const value = err.message.match(/(["'])(\\?.)*?\1/);
+  const values = Object.keys(err.keyValue);
+  const message = `El ${values[0]} ingresado ya existe.`;
   return new AppError(message, 400);
 }
 
 const handleValidationErrorDB = err =>{
   const errors = Object.values(err.errors).map(el => el.message);
-  const message = `Invalid input data. ${errors.join('. ')}`;
+  const message = `Error en los datos ingresados: ${errors.join('. ')}`;
   return new AppError(message, 400);
 }
 
-const handleJWTError = () => new AppError('Token invalido', 401);
+const handleJWTError = () => new AppError('Token inválido', 401);
 
 const handleJWTExpiredError = () => new AppError('Su token ha expirado', 401);
 
@@ -54,17 +54,20 @@ const sendErrorProd = (err, res)=>{
 
 
 module.exports = (err, req, res, next)=>{
-  console.log(err.stack);
+  //console.log(err.stack);
   err.statusCode = err.statusCode || 500;
   err.status = err.status || 'error';
 
   if (process.env.NODE_ENV === 'development') {
     sendErrorDev(err, res);
   }else if (process.env.NODE_ENV === 'production'){
+
     let error = {...err};
+    
     error.name = err.name;
     error.code = err.code;
-    error.errmsg = err.errmsg;
+    error.message = err.message;
+    //console.log('el mensaje es', error.message);
     if(error.name === 'CastError') error = handleCastErrorDB(error);
     if(error.code === 11000 ) error = handleDuplicateFieldsDB(error);
     if(error.name === 'ValidationError') error = handleValidationErrorDB(error);
