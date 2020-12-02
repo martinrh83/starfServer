@@ -51,7 +51,7 @@ exports.manageAttendance = catchAsync(async(req, res, next)=>{
       let attendacesGrouped = groupByArray(userApp.attendances, 'subjectCode').find(el => el.key == dataFiltered.codigo);
 
       if(attendacesGrouped){
-        let attendancesSorted = attendacesGrouped.values.sort((d1, d2) => new Date(d1.registeredAt).getTime() - new Date(d2.registeredAt).getTime());
+        let attendancesSorted = attendacesGrouped.values.sort((d1, d2) => new Date(d1.createdAt).getTime() - new Date(d2.createdAt).getTime());
         let lastAttendance = attendancesSorted[attendancesSorted.length - 1]
         hoursRemaining = lastAttendance.hoursRemaining - horario.horaCatedra;
       }else{
@@ -189,12 +189,12 @@ const isToday = (d1, d2)=>{
 
 exports.getLastAttendance = catchAsync(async (req, res, next)=>{
   //const user = await User.findById(req.user.id);
-  const {subjectCode, legajo } = req.body;
+  const {subjectName, legajo } = req.body;
   const user = await User.findOne({ legajo });
   console.log(user.attendances);
   let lastAttendance = {};
   if(user.attendances.length){
-    let attendacesSorted = groupByArray(user.attendances, 'subjectCode').find(el => el.key == subjectCode).values.sort((d1, d2) => new Date(d1.registeredAt).getTime() - new Date(d2.registeredAt).getTime());
+    let attendacesSorted = groupByArray(user.attendances, 'subjectName').find(el => el.key == subjectName).values.sort((d1, d2) => new Date(d1.createdAt).getTime() - new Date(d2.createdAt).getTime());
     lastAttendance = attendacesSorted[attendacesSorted.length - 1]
     console.log(lastAttendance);
   }

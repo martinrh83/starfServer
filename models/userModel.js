@@ -7,7 +7,8 @@ const Attendances = new mongoose.Schema({
   hoursRemaining: {type: Number},
   percentageCompleted: {type: Number},
   subjectCode: {type: String},
-  subjectName: {type: String}
+  subjectName: {type: String},
+  createdAt: {type: Date, default: Date.now}
 });
 
 const userSchema = new mongoose.Schema({
