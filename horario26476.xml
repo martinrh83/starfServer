@@ -8,6 +8,7 @@
     <comision>5k2</comision>
     <codigo>PRF</codigo>
     <materia>Proyecto Final</materia>
+    <cargahoraria>192</cargahoraria>
     <horario>
       <dia>Lunes</dia>
       <hora_desde>19:00</hora_desde>
@@ -27,6 +28,7 @@
     <comision>5k2</comision>
     <codigo>ADG</codigo>
     <materia>Administración Gerencial</materia>
+    <cargahoraria>96</cargahoraria>
     <horario>
       <dia>Martes</dia>
       <hora_desde>19:00</hora_desde>
@@ -46,6 +48,7 @@
     <comision>5k2</comision>
     <codigo>INA</codigo>
     <materia>Inteligencia Artificial</materia>
+    <cargahoraria>96</cargahoraria>
     <horario>
       <dia>Martes</dia>
       <hora_desde>21:15</hora_desde>
@@ -65,6 +68,7 @@
     <comision>5k2</comision>
     <codigo>SGE</codigo>
     <materia>Sistemas de Gestión</materia>
+    <cargahoraria>192</cargahoraria>
     <horario>
       <dia>Lunes</dia>
       <hora_desde>21:15</hora_desde>

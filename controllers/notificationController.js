@@ -22,22 +22,57 @@ exports.manageAttendance = catchAsync(async(req, res, next)=>{
   })
   let cameraDay = days[dayNumber - 1];
 
-  //console.log(dataSysacad)
+  console.log('Hoy es el dia de:', cameraDay)
   let dataFiltered = dataSysacad.find( el => {
     return el.horario.find(horario => {
       let cameraHour = parseInt(hour.split(':')[0] * 60  + hour.split(':')[1]);
       let hourStart = parseInt(horario.hora_desde.split(':')[0] * 60  + horario.hora_desde.split(':')[1]);
       let hourEnd = parseInt(horario.hora_hasta.split(':')[0] * 60  + horario.hora_hasta.split(':')[1]);
+      /*console.log('HORA cam ', cameraHour);
+      console.log('desde',hourStart);
+      console.log('hour end',hourEnd);
+      console.log(horario.dia)*/
+      horario.horaCatedra = 2;
       return (horario.dia  === cameraDay) && (hourStart <= cameraHour && hourEnd >= cameraHour)? true : false;
     })
   })
-
+  //console.log(dataFiltered)
   if(dataFiltered){
-    console.log('encontre un match')
+    console.log('ENCONTRE UN MATCH')
+    let hoursRemaining = 0;
+    let percentage = 0;
+    let horario = dataFiltered.horario.find(el =>{
+      return el.dia == cameraDay? true : false;
+    })
+    console.log(horario);
+    //console.log(dataFiltered)
+    if(userApp.attendances.length){
+      //let mongoToJs = userApp.attendances.toObject();
+      let attendacesGrouped = groupByArray(userApp.attendances, 'subjectCode').find(el => el.key == dataFiltered.codigo);
+
+      if(attendacesGrouped){
+        let attendancesSorted = attendacesGrouped.values.sort((d1, d2) => new Date(d1.registeredAt).getTime() - new Date(d2.registeredAt).getTime());
+        let lastAttendance = attendancesSorted[attendancesSorted.length - 1]
+        hoursRemaining = lastAttendance.hoursRemaining - horario.horaCatedra;
+      }else{
+        hoursRemaining = dataFiltered.cargahoraria - horario.horaCatedra;
+      }
+      percentage = Math.round(100 - ((hoursRemaining * 100) / dataFiltered.cargahoraria));
+    }else{
+      hoursRemaining = dataFiltered.cargahoraria - horario.horaCatedra;
+      percentage = Math.round(100 - ((hoursRemaining * 100) / dataFiltered.cargahoraria));
+    }
+    
+    //checkFeriado else
+    //if(!holidayDay){
+      //1 a partir del dia actual 
+    //}
     userApp.attendances.push({ 
       registeredAt: cameraDate,
       subjectCode: dataFiltered.codigo,
-      subjectName: dataFiltered.materia
+      subjectName: dataFiltered.materia,
+      hoursRemaining: hoursRemaining,
+      percentageCompleted: percentage
     });
 
     userApp.save(function (err) {
@@ -55,7 +90,7 @@ exports.manageAttendance = catchAsync(async(req, res, next)=>{
     console.log('no encontre un match')
     
   }
-  console.log(dataFiltered);
+  //console.log(dataFiltered);
   res.status(200).json({
     status: 'success',
     data: {
@@ -81,7 +116,22 @@ exports.getDataSysacad =  (legajo)=>{
   return data;
 };
 
-
+groupByArray = (xs, key)=> {
+  return xs.reduce(function (rv, x) {
+      let v = key instanceof Function ? key(x) : x[key];
+      let el = rv.find((r) => r && r.key === v);
+      if (el) {
+          el.values.push(x);
+      }
+      else {
+          rv.push({
+              key: v,
+              values: [x]
+          });
+      }
+      return rv;
+  }, []);
+};
 
 const sendPushToOneUser = notification => {
   const message = {
@@ -136,3 +186,23 @@ const isToday = (d1, d2)=>{
   && d1.getMonth() == d2.getMonth()
   && d1.getDate() == d2.getDate();
 };
+
+exports.getLastAttendance = catchAsync(async (req, res, next)=>{
+  //const user = await User.findById(req.user.id);
+  const {subjectCode, legajo } = req.body;
+  const user = await User.findOne({ legajo });
+  console.log(user.attendances);
+  let lastAttendance = {};
+  if(user.attendances.length){
+    let attendacesSorted = groupByArray(user.attendances, 'subjectCode').find(el => el.key == subjectCode).values.sort((d1, d2) => new Date(d1.registeredAt).getTime() - new Date(d2.registeredAt).getTime());
+    lastAttendance = attendacesSorted[attendacesSorted.length - 1]
+    console.log(lastAttendance);
+  }
+
+  res.status(200).json({
+    status: 'success',
+    data: {
+      lastAttendance
+    }
+  });    
+});

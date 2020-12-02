@@ -7,4 +7,5 @@ const router = express.Router();
 //router.post('/notification_user', notifController.sendPushToOneUser);
 router.post('/manage_attendance', notifController.manageAttendance);
 router.get('/daily_notifications', authController.protect, notifController.getDailyNotifications);
+router.post('/last_attendance', notifController.getLastAttendance);
 module.exports = router;

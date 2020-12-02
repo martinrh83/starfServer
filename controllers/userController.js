@@ -60,6 +60,26 @@ exports.getAllAttendances = catchAsync(async (req, res, next)=>{
   });    
 });
 
+exports.deleteAttendances = catchAsync(async (req, res, next)=>{
+  const {legajo} = req.body;
+  const user = await User.findOne({ legajo })
+  //console.log(user);
+  if(!user){
+    return next(new AppError('No se encontró un usuario con ese Legajo', 404));
+  }
+  user.attendances.remove();
+  user.save(function (err) {
+    if (err) return handleError(err);
+    console.log('the attendances were removed');
+  });
+  res.status(200).json({
+    status: 'success',
+    data: {
+      user
+    }
+  });    
+});
+
 exports.createUser = (req,res)=>{
   res.status(500).json({
     status: 'error',

@@ -4,6 +4,8 @@ const bcrypt = require('bcryptjs');
 
 const Attendances = new mongoose.Schema({
   registeredAt: {type: Date, default: Date.now},
+  hoursRemaining: {type: Number},
+  percentageCompleted: {type: Number},
   subjectCode: {type: String},
   subjectName: {type: String}
 });

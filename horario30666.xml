@@ -8,6 +8,7 @@
     <comision>3k1</comision>
     <codigo>DSS</codigo>
     <materia>Diseño de Sistemas</materia>
+    <cargahoraria>192</cargahoraria>
     <horario>
       <dia>Miércoles</dia>
       <hora_desde>16:15</hora_desde>
@@ -27,6 +28,7 @@
     <comision>3k1</comision>
     <codigo>GSD</codigo>
     <materia>Gestión de Datos</materia>
+    <cargahoraria>96</cargahoraria>
     <horario>
       <dia>Martes</dia>
       <hora_desde>16:15</hora_desde>
@@ -51,6 +53,7 @@
     <comision>3k1</comision>
     <codigo>PYE</codigo>
     <materia>Probabilidades y Estadísticas</materia>
+    <cargahoraria>96</cargahoraria>
     <horario>
       <dia>Miércoles</dia>
       <hora_desde>14:00</hora_desde>
@@ -70,6 +73,7 @@
     <comision>3k1</comision>
     <codigo>COM</codigo>
     <materia>Comunicaciones</materia>
+    <cargahoraria>96</cargahoraria>
     <horario>
       <dia>Jueves</dia>
       <hora_desde>15:30</hora_desde>

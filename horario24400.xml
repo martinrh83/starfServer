@@ -8,6 +8,7 @@
     <comision>4k1</comision>
     <codigo>ADR</codigo>
     <materia>Administración de Recursos</materia>
+    <cargahoraria>192</cargahoraria>
     <horario>
       <dia>Lunes</dia>
       <hora_desde>14:00</hora_desde>
@@ -27,6 +28,7 @@
     <comision>4k1</comision>
     <codigo>INO</codigo>
     <materia>Investigacion Operativa</materia>
+    <cargahoraria>96</cargahoraria>
     <horario>
       <dia>Lunes</dia>
       <hora_desde>16:15</hora_desde>
@@ -51,6 +53,7 @@
     <comision>4k1</comision>
     <codigo>SIG</codigo>
     <materia>Sistemas de Infomación Geográficos</materia>
+    <cargahoraria>58</cargahoraria>
     <horario>
       <dia>Martes</dia>
       <hora_desde>16:15</hora_desde>
@@ -70,6 +73,7 @@
     <comision>4k1</comision>
     <codigo>SIM</codigo>
     <materia>Simulación</materia>
+    <cargahoraria>96</cargahoraria>
     <horario>
       <dia>Miércoles</dia>
       <hora_desde>16:15</hora_desde>

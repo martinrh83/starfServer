@@ -8,6 +8,7 @@
     <comision>1k1</comision>
     <codigo>MDD</codigo>
     <materia>Matemática Discreta</materia>
+    <cargahoraria>96</cargahoraria>
     <horario>
       <dia>Lunes</dia>
       <hora_desde>10:15</hora_desde>
@@ -27,6 +28,7 @@
     <comision>1k1</comision>
     <codigo>AED</codigo>
     <materia>Algoritmos y Estructura de Datos</materia>
+    <cargahoraria>192</cargahoraria>
     <horario>
       <dia>Martes</dia>
       <hora_desde>09:30</hora_desde>
@@ -46,6 +48,7 @@
     <comision>1k1</comision>
     <codigo>SSO</codigo>
     <materia>Sistemas y Organizaciones</materia>
+    <cargahoraria>192</cargahoraria>
     <horario>
       <dia>Miércoles</dia>
       <hora_desde>08:00</hora_desde>
@@ -65,6 +68,7 @@
     <comision>1k1</comision>
     <codigo>ARC</codigo>
     <materia>Arquitectura de Computadoras</materia>
+    <cargahoraria>192</cargahoraria>
     <horario>
       <dia>Miércoles</dia>
       <hora_desde>10:15</hora_desde>

@@ -9,7 +9,7 @@ router.post('/login', authController.login);
 router.post('/register_token', authController.protect, userController.storeToken);
 router.patch('/update_password', authController.protect, authController.updatePassword);
 router.get('/get_attendances', authController.protect, userController.getAllAttendances);
-
+router.delete('/delete_attendances', userController.deleteAttendances);
 router
   .route('/')
   .get(authController.protect ,userController.getAllUsers)
