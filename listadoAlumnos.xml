@@ -4,7 +4,7 @@
     <anoacademico>2021</anoacademico>
     <especialidad>sistemas</especialidad>
     <plan>2008</plan>
-    <aula>115</aula>
+    <aula>120</aula>
     <comision>1k1</comision>
     <codigo>MDD</codigo>
     <materia>Matemática Discreta</materia>
@@ -19,12 +19,22 @@
       <hora_desde>08:00</hora_desde>
       <hora_hasta>09:30</hora_hasta>
     </horario>
+    <alumno>
+      <legajo>36034</legajo>
+      <nombre>Martin</nombre>
+      <apellido>Romano</apellido>
+    </alumno>
+    <alumno>
+      <legajo>30344</legajo>
+      <nombre>Usuario</nombre>
+      <apellido>Prueba</apellido>
+    </alumno>
   </data>
   <data>
     <anoacademico>2021</anoacademico>
     <especialidad>sistemas</especialidad>
     <plan>2008</plan>
-    <aula>154</aula>
+    <aula>120</aula>
     <comision>1k1</comision>
     <codigo>AED</codigo>
     <materia>Algoritmos y Estructura de Datos</materia>
@@ -39,6 +49,16 @@
       <hora_desde>10:15</hora_desde>
       <hora_hasta>12:30</hora_hasta>
     </horario>
+    <alumno>
+      <legajo>36034</legajo>
+      <nombre>Martin</nombre>
+      <apellido>Romano</apellido>
+    </alumno>
+    <alumno>
+      <legajo>30344</legajo>
+      <nombre>Usuario</nombre>
+      <apellido>Prueba</apellido>
+    </alumno>
   </data>
   <data>
     <anoacademico>2021</anoacademico>
@@ -59,6 +79,16 @@
       <hora_desde>09:30</hora_desde>
       <hora_hasta>11:00</hora_hasta>
     </horario>
+    <alumno>
+      <legajo>36034</legajo>
+      <nombre>Martin</nombre>
+      <apellido>Romano</apellido>
+    </alumno>
+    <alumno>
+      <legajo>30344</legajo>
+      <nombre>Usuario</nombre>
+      <apellido>Prueba</apellido>
+    </alumno>
   </data>
   <data>
     <anoacademico>2021</anoacademico>
@@ -79,5 +109,15 @@
       <hora_desde>11:00</hora_desde>
       <hora_hasta>12:30</hora_hasta>
     </horario>
+    <alumno>
+      <legajo>36034</legajo>
+      <nombre>Martin</nombre>
+      <apellido>Romano</apellido>
+    </alumno>
+    <alumno>
+      <legajo>30344</legajo>
+      <nombre>Usuario</nombre>
+      <apellido>Prueba</apellido>
+    </alumno>
   </data>
 </_parametro2>

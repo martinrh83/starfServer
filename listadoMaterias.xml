@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<_parametro2>
+  <data>
+    <anoacademico>2021</anoacademico>
+    <especialidad>sistemas</especialidad>
+    <plan>2008</plan>
+    <nivel>1</nivel>
+    <materia>Algebra y Geometría Analítica</materia>
+    <materia>Análisis Matemático I</materia>
+    <materia>Matemática Discreta</materia>
+    <materia>Algoritmos y Estructura de Datos</materia>
+    <materia>Arquitectura de Computadoras</materia>
+    <materia>Sistemas y Organizaciones</materia>
+    <materia>Química</materia>
+    <materia>Ingeniería y Sociedad</materia>
+  </data>
+  <data>
+    <anoacademico>2021</anoacademico>
+    <especialidad>sistemas</especialidad>
+    <plan>2008</plan>
+    <nivel>2</nivel>
+    <materia>Análisis Matemático II</materia>
+    <materia>Sintáxis y Semántica de los Lenguajes</materia>
+    <materia>Sistemas Operativos</materia>
+    <materia>Paradigmas de Programación</materia>
+    <materia>Análisis de Sistemas</materia>
+  </data>
+  <data>
+    <anoacademico>2021</anoacademico>
+    <especialidad>sistemas</especialidad>
+    <plan>2008</plan>
+    <nivel>3</nivel>
+    <materia>Diseño de Sistemas</materia>
+    <materia>Gestión de Datos</materia>
+    <materia>Probabilidades y Estadísticas</materia>
+    <materia>Comunicaciones</materia>
+  </data>
+  <data>
+    <anoacademico>2021</anoacademico>
+    <especialidad>sistemas</especialidad>
+    <plan>2008</plan>
+    <nivel>4</nivel>
+    <materia>Administración de Recursos</materia>
+    <materia>Investigación Operativa</materia>
+    <materia>Sistemas de Infomación Geográficos</materia>
+    <materia>Simulación</materia>
+  </data>
+  <data>
+    <anoacademico>2021</anoacademico>
+    <especialidad>sistemas</especialidad>
+    <plan>2008</plan>
+    <nivel>5</nivel>
+    <materia>Proyecto Final</materia>
+    <materia>Administración Gerencial</materia>
+    <materia>Inteligencia Artificial</materia>
+    <materia>Sistemas de Gestión</materia>
+  </data>
+</_parametro2>
