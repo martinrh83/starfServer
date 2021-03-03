@@ -387,7 +387,8 @@ exports.setManualAttendance = catchAsync(async(req, res, next)=>{
   console.log(lastAttendance)
   console.log(hoursRemaining)
   console.log(percentage)
-  user.attendances.push({ 
+  user.attendances.push({
+    registeredAt: cameraDate, 
     subjectCode: arrayFiltered.codigo,
     subjectName: arrayFiltered.materia,
     hoursRemaining: hoursRemaining,
@@ -457,7 +458,8 @@ exports.setException = catchAsync(async(req, res, next)=>{
       console.log(lastAttendance)
       console.log(hoursRemaining)
       console.log(percentage)
-      user.attendances.push({ 
+      user.attendances.push({
+        registeredAt: cameraDate, 
         subjectCode: arrayFiltered.codigo,
         subjectName: arrayFiltered.materia,
         hoursRemaining: hoursRemaining,
