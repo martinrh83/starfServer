@@ -200,8 +200,10 @@ exports.getStudentsList = catchAsync(async(req, res, next)=>{
   console.log(arrayFiltered)
   if(arrayFiltered == undefined){
     console.log('sin alumnos')
-    return next(new AppError('No hay alumnos inscriptos.', 400)); 
+    return next(new AppError('Comisión y/o materia ingresados no existen.', 400)); 
   }
+  if(!arrayFiltered.alumno) return next(new AppError('No hay alumnos inscriptos.', 400));
+
   for(const alumno of arrayFiltered.alumno) {
     let legajo = parseInt(alumno.legajo);
     const user  = await User.findOne({legajo: legajo});
@@ -342,7 +344,7 @@ exports.setManualAttendance = catchAsync(async(req, res, next)=>{
   console.log(arrayFiltered)
   if(arrayFiltered == undefined){
     console.log('sin alumnos')
-    return next(new AppError('No hay alumnos inscriptos.', 400)); 
+    return next(new AppError('Comisión y/o materia ingresados no existen.', 400)); 
   }
   const alumnoFounded = arrayFiltered.alumno.find((el)=> el.legajo == legajo);
   if(!alumnoFounded) return next(new AppError('El alumno no está inscripto a la materia y comisión seleccionadas.', 400));
@@ -402,5 +404,79 @@ exports.setManualAttendance = catchAsync(async(req, res, next)=>{
   res.status(200).json({
     status: 'success',
     message: 'Se ha registrado la asistencia correctamente.'
+  });    
+});
+
+exports.setException = catchAsync(async(req, res, next)=>{
+  const days = ["Lunes", "Martes", "Miércoles", "Jueves","Viernes"]
+  const {comision, materia, fecha} = req.body;
+  console.log(comision)
+  console.log(materia)
+  console.log(fecha)
+  let arraySysacad = this.getStudentsSysacad();
+  let arrayFiltered = arraySysacad.filter((el)=>{
+    return el.comision == comision && el.materia == materia;
+  })[0];
+  console.log(arrayFiltered)
+  if(arrayFiltered == undefined){
+    return next(new AppError('Comisión y/o materia ingresados no existen.', 400)); 
+  }
+
+  let cameraDate = new Date(fecha);
+  let dayNumber = cameraDate.getDay()
+  let cameraDay = days[dayNumber - 1];
+  console.log(cameraDay);
+  let horarioFounded = arrayFiltered.horario.find((el)=> el.dia == cameraDay);
+  if(!horarioFounded) return next(new AppError('El día seleccionado es incorrecto.', 400));
+  horarioFounded.horaCatedra = 2;
+  console.log(horarioFounded)
+  
+  if(!arrayFiltered.alumno) return next(new AppError('No hay alumnos inscriptos.', 400));
+  for(const alumno of arrayFiltered.alumno) {
+    let legajo = alumno.legajo;
+    let hoursRemaining = 0;
+    let percentage = 0;
+    const user  = await User.findOne({legajo: parseInt(legajo)});
+    let lastAttendance;
+    if(user){
+      if(user.attendances.length){
+        let attendacesGrouped = groupByArray(user.attendances, 'subjectName').find(el => el.key == materia);
+
+        if(attendacesGrouped){
+          let attendancesSorted = attendacesGrouped.values.sort((d1, d2) => new Date(d1.createdAt).getTime() - new Date(d2.createdAt).getTime());
+          lastAttendance = attendancesSorted[attendancesSorted.length - 1]
+          hoursRemaining = lastAttendance.hoursRemaining - horarioFounded.horaCatedra;
+        }else{
+          hoursRemaining = arrayFiltered.cargahoraria - horarioFounded.horaCatedra;
+        }
+        percentage = Math.round(100 - ((hoursRemaining * 100) / arrayFiltered.cargahoraria));
+      }else{
+        hoursRemaining = arrayFiltered.cargahoraria - horarioFounded.horaCatedra;
+        percentage = Math.round(100 - ((hoursRemaining * 100) / arrayFiltered.cargahoraria));
+      }
+      console.log(lastAttendance)
+      console.log(hoursRemaining)
+      console.log(percentage)
+      user.attendances.push({ 
+        subjectCode: arrayFiltered.codigo,
+        subjectName: arrayFiltered.materia,
+        hoursRemaining: hoursRemaining,
+        percentageCompleted: percentage
+      });
+
+      user.save(function (err) {
+        console.log(err)
+        if (!err) {
+          console.log('Attendance saved!');
+        }
+      });
+    }else{
+      return next(new AppError('El alumno no está registrado en la aplicación.', 400)); 
+    }
+  }
+  
+  res.status(200).json({
+    status: 'success',
+    message: 'Se ha registrado la asistencia correctamente a todos los estudiantes.'
   });    
 });

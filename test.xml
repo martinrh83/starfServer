@@ -1,41 +1,83 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <_parametro2>
   <data>
-    <anoacademico>20f20</anoacademico>
+    <anoacademico>2021</anoacademico>
     <especialidad>sistemas</especialidad>
     <plan>2008</plan>
-    <aula>120</aula>
-    <comision>1k8</comision>
-    <materia>AED</materia>
-    <nombre>Algoritmos</nombre>
-    <horario>
-      <dia>Lunes</dia>
-      <hora_desde>09:30</hora_desde>
-      <hora_hasta>10:15</hora_hasta>
-    </horario>
-    <horario>
-      <dia>Miércoles</dia>
-      <hora_desde>08:00</hora_desde>
-      <hora_hasta>08:45</hora_hasta>
-    </horario>
-  </data>
-  <data>
-    <anoacademico>20f20</anoacademico>
-    <especialidad>sistemas</especialidad>
-    <plan>2008</plan>
-    <aula>120</aula>
-    <comision>1k8</comision>
+    <aula>115</aula>
+    <comision>1k1</comision>
     <codigo>MDD</codigo>
-    <materia>Discreta</materia>
+    <materia>Matemática Discreta</materia>
+    <cargahoraria>96</cargahoraria>
     <horario>
       <dia>Lunes</dia>
-      <hora_desde>08:00</hora_desde>
-      <hora_hasta>08:45</hora_hasta>
+      <hora_desde>10:15</hora_desde>
+      <hora_hasta>12:30</hora_hasta>
     </horario>
     <horario>
       <dia>Jueves</dia>
       <hora_desde>08:00</hora_desde>
-      <hora_hasta>08:45</hora_hasta>
+      <hora_hasta>09:30</hora_hasta>
+    </horario>
+  </data>
+  <data>
+    <anoacademico>2021</anoacademico>
+    <especialidad>sistemas</especialidad>
+    <plan>2008</plan>
+    <aula>154</aula>
+    <comision>1k1</comision>
+    <codigo>AED</codigo>
+    <materia>Algoritmos y Estructura de Datos</materia>
+    <cargahoraria>192</cargahoraria>
+    <horario>
+      <dia>Martes</dia>
+      <hora_desde>09:30</hora_desde>
+      <hora_hasta>11:00</hora_hasta>
+    </horario>
+    <horario>
+      <dia>Viernes</dia>
+      <hora_desde>10:15</hora_desde>
+      <hora_hasta>12:30</hora_hasta>
+    </horario>
+  </data>
+  <data>
+    <anoacademico>2021</anoacademico>
+    <especialidad>sistemas</especialidad>
+    <plan>2008</plan>
+    <aula>115</aula>
+    <comision>1k1</comision>
+    <codigo>SSO</codigo>
+    <materia>Sistemas y Organizaciones</materia>
+    <cargahoraria>192</cargahoraria>
+    <horario>
+      <dia>Miércoles</dia>
+      <hora_desde>08:00</hora_desde>
+      <hora_hasta>10:15</hora_hasta>
+    </horario>
+    <horario>
+      <dia>Jueves</dia>
+      <hora_desde>09:30</hora_desde>
+      <hora_hasta>11:00</hora_hasta>
+    </horario>
+  </data>
+  <data>
+    <anoacademico>2021</anoacademico>
+    <especialidad>sistemas</especialidad>
+    <plan>2008</plan>
+    <aula>115</aula>
+    <comision>1k1</comision>
+    <codigo>ARC</codigo>
+    <materia>Arquitectura de Computadoras</materia>
+    <cargahoraria>192</cargahoraria>
+    <horario>
+      <dia>Miércoles</dia>
+      <hora_desde>10:15</hora_desde>
+      <hora_hasta>11:45</hora_hasta>
+    </horario>
+    <horario>
+      <dia>Jueves</dia>
+      <hora_desde>11:00</hora_desde>
+      <hora_hasta>12:30</hora_hasta>
     </horario>
   </data>
 </_parametro2>

@@ -12,4 +12,5 @@ router.post('/students_list', notifController.getStudentsList);
 router.get('/courses_list', notifController.getComisiones);
 router.post('/subjects_list', notifController.getMaterias);
 router.post('/manual_attendance', notifController.setManualAttendance);
+router.post('/create_exception', notifController.setException);
 module.exports = router;
