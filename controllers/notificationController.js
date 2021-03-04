@@ -344,7 +344,7 @@ exports.setManualAttendance = catchAsync(async(req, res, next)=>{
   console.log(arrayFiltered)
   if(arrayFiltered == undefined){
     console.log('sin alumnos')
-    return next(new AppError('Comisión y/o materia ingresados no existen.', 400)); 
+    return next(new AppError('No hay alumnos inscriptos.', 400)); 
   }
   const alumnoFounded = arrayFiltered.alumno.find((el)=> el.legajo == legajo);
   if(!alumnoFounded) return next(new AppError('El alumno no está inscripto a la materia y comisión seleccionadas.', 400));
@@ -420,7 +420,7 @@ exports.setException = catchAsync(async(req, res, next)=>{
   })[0];
   console.log(arrayFiltered)
   if(arrayFiltered == undefined){
-    return next(new AppError('Comisión y/o materia ingresados no existen.', 400)); 
+    return next(new AppError('No hay alumnos inscriptos.', 400)); 
   }
 
   let cameraDate = new Date(fecha);
