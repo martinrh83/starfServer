@@ -14,13 +14,15 @@ exports.manageAttendance = catchAsync(async(req, res, next)=>{
   const {datetime, legajo } = req.body;
   const userApp = await User.findOne({ legajo }).select('+token');
   const dataSysacad =  this.getDataSysacad(legajo)._parametro2.data;
-
+  //console.log(dataSysacad);
   let cameraDate = new Date(datetime);
   let dayNumber = cameraDate.getDay()
   let hour  = cameraDate.toLocaleTimeString(undefined, {
     hour: '2-digit',
-    minute: '2-digit'
+    minute: '2-digit',
+    hour12: false
   })
+  console.log(hour)
   let cameraDay = days[dayNumber - 1];
 
   console.log('Hoy es el dia de:', cameraDay)
@@ -88,7 +90,7 @@ exports.manageAttendance = catchAsync(async(req, res, next)=>{
       }
     });
   }else{
-    console.log('no encontre un match')
+    console.log('NO ENCONTRE UN MATCH')
     
   }
   //console.log(dataFiltered);
