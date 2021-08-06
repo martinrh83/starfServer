@@ -4,90 +4,80 @@
     <anoacademico>2021</anoacademico>
     <especialidad>sistemas</especialidad>
     <plan>2008</plan>
-    <aula>103</aula>
-    <comision>4k1</comision>
-    <codigo>ADR</codigo>
-    <materia>Administración de Recursos</materia>
+    <aula>115</aula>
+    <comision>1k1</comision>
+    <codigo>MDD</codigo>
+    <materia>Matemática Discreta</materia>
+    <cargahoraria>96</cargahoraria>
+    <horario>
+      <dia>Lunes</dia>
+      <hora_desde>10:15</hora_desde>
+      <hora_hasta>12:30</hora_hasta>
+    </horario>
+    <horario>
+      <dia>Jueves</dia>
+      <hora_desde>08:00</hora_desde>
+      <hora_hasta>09:30</hora_hasta>
+    </horario>
+  </data>
+  <data>
+    <anoacademico>2021</anoacademico>
+    <especialidad>sistemas</especialidad>
+    <plan>2008</plan>
+    <aula>154</aula>
+    <comision>1k1</comision>
+    <codigo>AED</codigo>
+    <materia>Algoritmos y Estructura de Datos</materia>
     <cargahoraria>192</cargahoraria>
     <horario>
-      <dia>Lunes</dia>
-      <hora_desde>14:00</hora_desde>
-      <hora_hasta>16:15</hora_hasta>
+      <dia>Martes</dia>
+      <hora_desde>09:30</hora_desde>
+      <hora_hasta>11:00</hora_hasta>
     </horario>
     <horario>
       <dia>Viernes</dia>
-      <hora_desde>14:00</hora_desde>
-      <hora_hasta>16:15</hora_hasta>
+      <hora_desde>15:15</hora_desde>
+      <hora_hasta>17:30</hora_hasta>
     </horario>
   </data>
   <data>
     <anoacademico>2021</anoacademico>
     <especialidad>sistemas</especialidad>
     <plan>2008</plan>
-    <aula>103</aula>
-    <comision>4k1</comision>
-    <codigo>INO</codigo>
-    <materia>Investigación Operativa</materia>
-    <cargahoraria>96</cargahoraria>
+    <aula>115</aula>
+    <comision>1k1</comision>
+    <codigo>SSO</codigo>
+    <materia>Sistemas y Organizaciones</materia>
+    <cargahoraria>192</cargahoraria>
     <horario>
-      <dia>Lunes</dia>
-      <hora_desde>16:15</hora_desde>
-      <hora_hasta>18:30</hora_hasta>
-    </horario>
-    <horario>
-      <dia>Martes</dia>
-      <hora_desde>13:15</hora_desde>
-      <hora_hasta>16:15</hora_hasta>
+      <dia>Miércoles</dia>
+      <hora_desde>08:00</hora_desde>
+      <hora_hasta>10:15</hora_hasta>
     </horario>
     <horario>
       <dia>Jueves</dia>
-      <hora_desde>13:15</hora_desde>
-      <hora_hasta>15:30</hora_hasta>
+      <hora_desde>09:30</hora_desde>
+      <hora_hasta>11:00</hora_hasta>
     </horario>
   </data>
   <data>
     <anoacademico>2021</anoacademico>
     <especialidad>sistemas</especialidad>
     <plan>2008</plan>
-    <aula>103</aula>
-    <comision>4k1</comision>
-    <codigo>SIG</codigo>
-    <materia>Sistemas de Infomación Geográficos</materia>
-    <cargahoraria>58</cargahoraria>
-    <horario>
-      <dia>Martes</dia>
-      <hora_desde>16:15</hora_desde>
-      <hora_hasta>19:15</hora_hasta>
-    </horario>
+    <aula>115</aula>
+    <comision>1k1</comision>
+    <codigo>ARC</codigo>
+    <materia>Arquitectura de Computadoras</materia>
+    <cargahoraria>192</cargahoraria>
     <horario>
       <dia>Miércoles</dia>
-      <hora_desde>14:00</hora_desde>
-      <hora_hasta>16:15</hora_hasta>
-    </horario>
-  </data>
-  <data>
-    <anoacademico>2021</anoacademico>
-    <especialidad>sistemas</especialidad>
-    <plan>2008</plan>
-    <aula>103</aula>
-    <comision>4k1</comision>
-    <codigo>SIM</codigo>
-    <materia>Simulación</materia>
-    <cargahoraria>96</cargahoraria>
-    <horario>
-      <dia>Miércoles</dia>
-      <hora_desde>16:15</hora_desde>
-      <hora_hasta>19:15</hora_hasta>
+      <hora_desde>10:15</hora_desde>
+      <hora_hasta>11:45</hora_hasta>
     </horario>
     <horario>
       <dia>Jueves</dia>
-      <hora_desde>15:30</hora_desde>
-      <hora_hasta>17:00</hora_hasta>
-    </horario>
-    <horario>
-      <dia>Viernes</dia>
-      <hora_desde>16:15</hora_desde>
-      <hora_hasta>17:45</hora_hasta>
+      <hora_desde>11:00</hora_desde>
+      <hora_hasta>12:30</hora_hasta>
     </horario>
   </data>
 </_parametro2>
